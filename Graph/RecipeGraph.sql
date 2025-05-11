@@ -8,7 +8,7 @@ GO
 USE RecipeGraph;
 GO
 
--- Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ† ÑƒÐ·Ð»Ð¾Ð²
+-- Ñîçäàíèå òàáëèö óçëîâ
 DROP TABLE IF EXISTS Recipes;
 CREATE TABLE Recipes (
     ID INT PRIMARY KEY,
@@ -30,47 +30,47 @@ CREATE TABLE CookingMethods (
     Name VARCHAR(100)
 ) AS NODE;
 
--- Ð’ÑÑ‚Ð°Ð²ÐºÐ° Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð² Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹ ÑƒÐ·Ð»Ð¾Ð²
+-- Âñòàâêà äàííûõ â òàáëèöû óçëîâ
 INSERT INTO Recipes (ID, Title, CookingTime, Instructions)
 VALUES 
-(1, 'ÐŸÐ°ÑÑ‚Ð° ÐºÐ°Ñ€Ð±Ð¾Ð½Ð°Ñ€Ð°', 30, 'Ð¡Ð¼ÐµÑˆÐ°Ñ‚ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹ Ð¸ Ð³Ð¾Ñ‚Ð¾Ð²Ð¸Ñ‚ÑŒ Ð½Ð° ÑÑ€ÐµÐ´Ð½ÐµÐ¼ Ð¾Ð³Ð½Ðµ.'),
-(2, 'Ð¦ÐµÐ·Ð°Ñ€ÑŒ ÑÐ°Ð»Ð°Ñ‚', 15, 'Ð¡Ð¼ÐµÑˆÐ°Ñ‚ÑŒ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹ Ð¸ Ð¿Ð¾Ð´Ð°Ð²Ð°Ñ‚ÑŒ Ñ ÑÐ¾ÑƒÑÐ¾Ð¼.'),
-(3, 'Ð¨Ð¾ÐºÐ¾Ð»Ð°Ð´Ð½Ñ‹Ð¹ Ñ‚Ð¾Ñ€Ñ‚', 60, 'ÐŸÑ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð¸Ñ‚ÑŒ Ñ‚ÐµÑÑ‚Ð¾, Ð²Ñ‹Ð¿ÐµÐºÐ°Ñ‚ÑŒ Ð¸ Ð¾ÑÑ‚ÑƒÐ´Ð¸Ñ‚ÑŒ.'),
-(4, 'ÐžÐ¼Ð»ÐµÑ‚', 10, 'Ð’Ð·Ð±Ð¸Ñ‚ÑŒ ÑÐ¹Ñ†Ð° Ð¸ Ð¶Ð°Ñ€Ð¸Ñ‚ÑŒ Ð½Ð° ÑÐºÐ¾Ð²Ð¾Ñ€Ð¾Ð´Ðµ.'),
-(5, 'ÐšÑƒÑ€Ð¸Ñ†Ð° Ñ‚ÐµÑ€Ð¸ÑÐºÐ¸', 45, 'Ð—Ð°Ð¿ÐµÑ‡ÑŒ ÐºÑƒÑ€Ð¸Ñ†Ñƒ Ñ ÑÐ¾ÑƒÑÐ¾Ð¼ Ñ‚ÐµÑ€Ð¸ÑÐºÐ¸.'),
-(6, 'Ð¢Ð°Ð¹ÑÐºÐ¸Ð¹ ÐºÐ°Ñ€Ñ€Ð¸', 40, 'ÐŸÑ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð¸Ñ‚ÑŒ Ð²ÑÐµ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹ Ð² ÐºÐ°ÑÑ‚Ñ€ÑŽÐ»Ðµ.'),
-(7, 'Ð Ð¸Ð·Ð¾Ñ‚Ñ‚Ð¾', 30, 'ÐœÐµÐ´Ð»ÐµÐ½Ð½Ð¾ Ð²Ð°Ñ€Ð¸Ñ‚ÑŒ Ñ€Ð¸Ñ Ñ Ð±ÑƒÐ»ÑŒÐ¾Ð½Ð¾Ð¼.'),
-(8, 'Ð‘ÑƒÑ€Ð³ÐµÑ€', 25, 'Ð¡Ð¾Ð±Ñ€Ð°Ñ‚ÑŒ Ð²ÑÐµ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹ Ð¸ Ð¶Ð°Ñ€Ð¸Ñ‚ÑŒ Ð½Ð° Ð³Ñ€Ð¸Ð»Ðµ.'),
-(9, 'Ð¡ÑƒÐ¿ Ð¼Ð¸Ð½ÐµÑÑ‚Ñ€Ð¾Ð½Ðµ', 50, 'Ð¡Ð¼ÐµÑˆÐ°Ñ‚ÑŒ Ð¾Ð²Ð¾Ñ‰Ð¸ Ð¸ Ð²Ð°Ñ€Ð¸Ñ‚ÑŒ Ð´Ð¾ Ð³Ð¾Ñ‚Ð¾Ð²Ð½Ð¾ÑÑ‚Ð¸.'),
-(10, 'ÐŸÐµÑ‡ÐµÐ½ÑŒÐµ', 20, 'Ð¡Ð¼ÐµÑˆÐ°Ñ‚ÑŒ Ñ‚ÐµÑÑ‚Ð¾ Ð¸ Ð²Ñ‹Ð¿ÐµÐºÐ°Ñ‚ÑŒ.');
+(1, 'Ïàñòà êàðáîíàðà', 30, 'Ñìåøàòü èíãðåäèåíòû è ãîòîâèòü íà ñðåäíåì îãíå.'),
+(2, 'Öåçàðü ñàëàò', 15, 'Ñìåøàòü èíãðåäèåíòû è ïîäàâàòü ñ ñîóñîì.'),
+(3, 'Øîêîëàäíûé òîðò', 60, 'Ïðèãîòîâèòü òåñòî, âûïåêàòü è îñòóäèòü.'),
+(4, 'Îìëåò', 10, 'Âçáèòü ÿéöà è æàðèòü íà ñêîâîðîäå.'),
+(5, 'Êóðèöà òåðèÿêè', 45, 'Çàïå÷ü êóðèöó ñ ñîóñîì òåðèÿêè.'),
+(6, 'Òàéñêèé êàððè', 40, 'Ïðèãîòîâèòü âñå èíãðåäèåíòû â êàñòðþëå.'),
+(7, 'Ðèçîòòî', 30, 'Ìåäëåííî âàðèòü ðèñ ñ áóëüîíîì.'),
+(8, 'Áóðãåð', 25, 'Ñîáðàòü âñå èíãðåäèåíòû è æàðèòü íà ãðèëå.'),
+(9, 'Ñóï ìèíåñòðîíå', 50, 'Ñìåøàòü îâîùè è âàðèòü äî ãîòîâíîñòè.'),
+(10, 'Ïå÷åíüå', 20, 'Ñìåøàòü òåñòî è âûïåêàòü.');
 
 INSERT INTO Ingredients (ID, Name, Quantity)
 VALUES 
-(1, 'Ð¡Ð¿Ð°Ð³ÐµÑ‚Ñ‚Ð¸', '200 Ð³'),
-(2, 'Ð¯Ð¹Ñ†Ð°', '2 ÑˆÑ‚.'),
-(3, 'Ð‘ÐµÐºÐ¾Ð½', '100 Ð³'),
-(4, 'Ð¡Ð°Ð»Ð°Ñ‚', '1 ÑˆÑ‚.'),
-(5, 'ÐšÑƒÑ€Ð¸Ð½Ð¾Ðµ Ñ„Ð¸Ð»Ðµ', '300 Ð³'),
-(6, 'Ð¡Ð¾ÑƒÑ Ñ‚ÐµÑ€Ð¸ÑÐºÐ¸', '50 Ð¼Ð»'),
-(7, 'Ð¨Ð¾ÐºÐ¾Ð»Ð°Ð´', '200 Ð³'),
-(8, 'ÐœÑƒÐºÐ°', '300 Ð³'),
-(9, 'Ð“Ñ€Ð¸Ð±Ñ‹', '150 Ð³'),
-(10, 'Ð›ÑƒÐº', '1 ÑˆÑ‚.');
+(1, 'Ñïàãåòòè', '200 ã'),
+(2, 'ßéöà', '2 øò.'),
+(3, 'Áåêîí', '100 ã'),
+(4, 'Ñàëàò', '1 øò.'),
+(5, 'Êóðèíîå ôèëå', '300 ã'),
+(6, 'Ñîóñ òåðèÿêè', '50 ìë'),
+(7, 'Øîêîëàä', '200 ã'),
+(8, 'Ìóêà', '300 ã'),
+(9, 'Ãðèáû', '150 ã'),
+(10, 'Ëóê', '1 øò.');
 
 INSERT INTO CookingMethods (ID, Name)
 VALUES 
-(1, 'Ð’Ð°Ñ€ÐºÐ°'),
-(2, 'Ð–Ð°Ñ€ÐºÐ°'),
-(3, 'Ð—Ð°Ð¿ÐµÐºÐ°Ð½Ð¸Ðµ'),
-(4, 'Ð¢ÑƒÑˆÐµÐ½Ð¸Ðµ'),
-(5, 'Ð—Ð°Ð¿Ð°Ñ€Ð¸Ð²Ð°Ð½Ð¸Ðµ'),
-(6, 'ÐŸÑ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ Ð½Ð° Ð¿Ð°Ñ€Ñƒ'),
-(7, 'Ð“Ñ€Ð¸Ð»ÑŒ'),
-(8, 'Ð—Ð°Ð¿ÐµÐºÐ°Ð½Ð¸Ðµ Ð² Ð¼Ð¸ÐºÑ€Ð¾Ð²Ð¾Ð»Ð½Ð¾Ð²ÐºÐµ'),
-(9, 'Ð¡Ð¼ÐµÑˆÐ¸Ð²Ð°Ð½Ð¸Ðµ'),
-(10, 'ÐšÐ¾Ð¿Ñ‡ÐµÐ½Ð¸Ðµ');
+(1, 'Âàðêà'),
+(2, 'Æàðêà'),
+(3, 'Çàïåêàíèå'),
+(4, 'Òóøåíèå'),
+(5, 'Çàïàðèâàíèå'),
+(6, 'Ïðèãîòîâëåíèå íà ïàðó'),
+(7, 'Ãðèëü'),
+(8, 'Çàïåêàíèå â ìèêðîâîëíîâêå'),
+(9, 'Ñìåøèâàíèå'),
+(10, 'Êîï÷åíèå');
 
--- Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ Ñ‚Ð°Ð±Ð»Ð¸Ñ† Ñ€Ñ‘Ð±ÐµÑ€
+-- Ñîçäàíèå òàáëèö ð¸áåð
 DROP TABLE IF EXISTS RecipesOfIngredients;
 CREATE TABLE RecipesOfIngredients AS EDGE;
 
@@ -80,7 +80,7 @@ CREATE TABLE RecipesOfCookingMethods AS EDGE;
 DROP TABLE IF EXISTS IngredientsPreparationMethods;
 CREATE TABLE IngredientsPreparationMethods AS EDGE;
 
--- Ð˜Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹
+-- Èíãðåäèåíòû
 INSERT INTO RecipesOfIngredients
 VALUES ((SELECT $node_id FROM Recipes WHERE ID = 1), (SELECT $node_id FROM Ingredients WHERE ID = 1)),
        ((SELECT $node_id FROM Recipes WHERE ID = 1), (SELECT $node_id FROM Ingredients WHERE ID = 2)),
@@ -93,7 +93,7 @@ VALUES ((SELECT $node_id FROM Recipes WHERE ID = 1), (SELECT $node_id FROM Ingre
        ((SELECT $node_id FROM Recipes WHERE ID = 4), (SELECT $node_id FROM Ingredients WHERE ID = 2)),
        ((SELECT $node_id FROM Recipes WHERE ID = 8), (SELECT $node_id FROM Ingredients WHERE ID = 9));
 
--- Ð’ÑÑ‚Ð°Ð²ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð² Ð¿Ñ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ
+-- Âñòàâêà ìåòîäîâ ïðèãîòîâëåíèÿ
 INSERT INTO RecipesOfCookingMethods
 VALUES ((SELECT $node_id FROM Recipes WHERE ID = 1), (SELECT $node_id FROM CookingMethods WHERE ID = 2)),
        ((SELECT $node_id FROM Recipes WHERE ID = 2), (SELECT $node_id FROM CookingMethods WHERE ID = 1)),
@@ -106,7 +106,7 @@ VALUES ((SELECT $node_id FROM Recipes WHERE ID = 1), (SELECT $node_id FROM Cooki
        ((SELECT $node_id FROM Recipes WHERE ID = 9), (SELECT $node_id FROM CookingMethods WHERE ID = 1)),
        ((SELECT $node_id FROM Recipes WHERE ID = 10), (SELECT $node_id FROM CookingMethods WHERE ID = 3));
 
--- Ð’ÑÑ‚Ð°Ð²ÐºÐ° Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð² Ð¿Ñ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð¾Ð²
+-- Âñòàâêà ìåòîäîâ ïðèãîòîâëåíèÿ äëÿ èíãðåäèåíòîâ
 INSERT INTO IngredientsPreparationMethods
 VALUES ((SELECT $node_id FROM Ingredients WHERE ID = 1), (SELECT $node_id FROM CookingMethods WHERE ID = 1)),
        ((SELECT $node_id FROM Ingredients WHERE ID = 2), (SELECT $node_id FROM CookingMethods WHERE ID = 2)),
@@ -121,28 +121,28 @@ VALUES ((SELECT $node_id FROM Ingredients WHERE ID = 1), (SELECT $node_id FROM C
 
 -------------------------------- Match ---------------------
 
--- 1. ÐÐ°Ð¹Ñ‚Ð¸ Ð²ÑÐµ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ñ‹, ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‰Ð¸Ðµ ÑÐ¿Ð°Ð³ÐµÑ‚Ñ‚Ð¸
+-- 1. Íàéòè âñå ðåöåïòû, ñîäåðæàùèå ñïàãåòòè
 SELECT R.Title, R.CookingTime
 FROM Recipes R,
      RecipesOfIngredients RI,
      Ingredients I
 WHERE MATCH(R-(RI)->I)
-  AND I.Name = 'Ð¡Ð¿Ð°Ð³ÐµÑ‚Ñ‚Ð¸';
+  AND I.Name = 'Ñïàãåòòè';
 
--- 2. ÐÐ°Ð¹Ñ‚Ð¸ Ð²ÑÐµ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ñ‹ Ñ ÑƒÐºÐ°Ð·Ð°Ð½Ð¸ÐµÐ¼ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸ Ð¿Ñ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð±Ð¾Ð»ÐµÐµ 30 Ð¼Ð¸Ð½ÑƒÑ‚
+-- 2. Íàéòè âñå ðåöåïòû ñ óêàçàíèåì âðåìåíè ïðèãîòîâëåíèÿ áîëåå 30 ìèíóò
 SELECT R.Title, R.CookingTime
 FROM Recipes R
 WHERE R.CookingTime > 30;
 
--- 3. ÐÐ°Ð¹Ñ‚Ð¸ Ð²ÑÐµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹ Ð¿Ñ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ Ð´Ð»Ñ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ð° 'ÐŸÐ°ÑÑ‚Ð° ÐºÐ°Ñ€Ð±Ð¾Ð½Ð°Ñ€Ð°'
+-- 3. Íàéòè âñå ìåòîäû ïðèãîòîâëåíèÿ äëÿ ðåöåïòà 'Ïàñòà êàðáîíàðà'
 SELECT DISTINCT CM.Name
 FROM Recipes R,
      RecipesOfCookingMethods RCM,
      CookingMethods CM
 WHERE MATCH(R-(RCM)->CM)
-  AND R.Title = 'ÐŸÐ°ÑÑ‚Ð° ÐºÐ°Ñ€Ð±Ð¾Ð½Ð°Ñ€Ð°';
+  AND R.Title = 'Ïàñòà êàðáîíàðà';
 
--- 4. ÐÐ°Ð¹Ñ‚Ð¸ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ñ‚Ñ€ÐµÐ±ÑƒÑŽÑ‚ Ð¶Ð°Ñ€ÐºÐ¸ Ð¸ ÑÐ¾Ð´ÐµÑ€Ð¶Ð°Ñ‚ ÐºÑƒÑ€Ð¸Ð½Ð¾Ðµ Ñ„Ð¸Ð»Ðµ
+-- 4. Íàéòè ðåöåïòû, êîòîðûå òðåáóþò æàðêè è ñîäåðæàò êóðèíîå ôèëå
 SELECT R.Title
 FROM Recipes R,
      RecipesOfIngredients RI,
@@ -151,20 +151,20 @@ FROM Recipes R,
      CookingMethods CM
 WHERE MATCH(R-(RI)->I) 
   AND MATCH(R-(RCM)->CM)
-  AND I.Name = 'ÐšÑƒÑ€Ð¸Ð½Ð¾Ðµ Ñ„Ð¸Ð»Ðµ'
-  AND CM.Name = 'Ð–Ð°Ñ€ÐºÐ°';
+  AND I.Name = 'Êóðèíîå ôèëå'
+  AND CM.Name = 'Æàðêà';
 
--- 5. ÐÐ°Ð¹Ñ‚Ð¸ Ð²ÑÐµ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ñ‹, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ñ‚Ñ€ÐµÐ±ÑƒÑŽÑ‚ Ð·Ð°Ð¿ÐµÐºÐ°Ð½Ð¸Ñ
+-- 5. Íàéòè âñå ðåöåïòû, êîòîðûå òðåáóþò çàïåêàíèÿ
 SELECT R.Title
 FROM Recipes R,
      RecipesOfCookingMethods RCM,
      CookingMethods CM
 WHERE MATCH(R-(RCM)->CM)
-  AND CM.Name = 'Ð—Ð°Ð¿ÐµÐºÐ°Ð½Ð¸Ðµ';
+  AND CM.Name = 'Çàïåêàíèå';
 
 -------------------- Shortest_path ------------------
 
--- ÐÐ°Ð¹Ñ‚Ð¸ ÐºÑ€Ð°Ñ‚Ñ‡Ð°Ð¹ÑˆÐ¸Ð¹ Ð¿ÑƒÑ‚ÑŒ Ð¾Ñ‚ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ð° Ðº Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð°Ð¼ Ð´Ð»Ñ 'ÐŸÐ°ÑÑ‚Ð° ÐºÐ°Ñ€Ð±Ð¾Ð½Ð°Ñ€Ð°'
+-- Íàéòè êðàò÷àéøèé ïóòü îò ðåöåïòà ê èíãðåäèåíòàì äëÿ 'Ïàñòà êàðáîíàðà'
 SELECT 
     R1.Title AS StartRecipe,
     STRING_AGG(I.Name, ' ->') 
@@ -173,9 +173,9 @@ FROM Recipes AS R1,
      RecipesOfIngredients FOR PATH AS ri,
      Ingredients FOR PATH AS I
 WHERE MATCH(SHORTEST_PATH(R1(-(ri)->I)+))
-  AND R1.Title = 'ÐŸÐ°ÑÑ‚Ð° ÐºÐ°Ñ€Ð±Ð¾Ð½Ð°Ñ€Ð°';
+  AND R1.Title = 'Ïàñòà êàðáîíàðà';
 
--- ÐÐ°Ð¹Ñ‚Ð¸ ÐºÑ€Ð°Ñ‚Ñ‡Ð°Ð¹ÑˆÐ¸Ð¹ Ð¿ÑƒÑ‚ÑŒ Ð¾Ñ‚ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ð° Ðº Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ð°Ð¼ Ñ Ð¾Ð³Ñ€Ð°Ð½Ð¸Ñ‡ÐµÐ½Ð¸ÐµÐ¼ Ð² 3
+-- Íàéòè êðàò÷àéøèé ïóòü îò ðåöåïòà ê èíãðåäèåíòàì ñ îãðàíè÷åíèåì â 3
 SELECT 
     R1.Title AS StartRecipe,
     STRING_AGG(I.Name, ' ->') 
@@ -184,15 +184,15 @@ FROM Recipes AS R1,
      RecipesOfIngredients FOR PATH AS ri,
      Ingredients FOR PATH AS I
 WHERE MATCH(SHORTEST_PATH(R1(-(ri)->I){1,3}))
-  AND R1.Title = 'ÐšÑƒÑ€Ð¸Ñ†Ð° Ñ‚ÐµÑ€Ð¸ÑÐºÐ¸';
+  AND R1.Title = 'Êóðèöà òåðèÿêè';
 
----- Ð”Ð»Ñ Power BI --
+---- Äëÿ Power BI --
 
-SELECT @@servername
+SELECT @@servername 
 
---- ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð°Ð·Ñ‹ Ð´Ð°Ð½Ð½Ñ‹Ñ…: RecipeGraph
+--- Íàçâàíèå áàçû äàííûõ: RecipeGraph
 
--- ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ñ‹ Ð¸ Ð¸Ñ… Ð¸Ð½Ð³Ñ€ÐµÐ´Ð¸ÐµÐ½Ñ‚Ñ‹
+-- Ïîëó÷èòü âñå ðåöåïòû è èõ èíãðåäèåíòû
 SELECT 
     R.ID AS IdFirst,
     R.Title AS First,
@@ -207,7 +207,7 @@ FROM Recipes AS R,
      Ingredients AS I
 WHERE MATCH(R-(RI)->I);
 
--- ÐŸÐ¾Ð»ÑƒÑ‡Ð¸Ñ‚ÑŒ Ð²ÑÐµ Ñ€ÐµÑ†ÐµÐ¿Ñ‚Ñ‹ Ð¸ Ð¸Ñ… Ð¼ÐµÑ‚Ð¾Ð´Ñ‹ Ð¿Ñ€Ð¸Ð³Ð¾Ñ‚Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ
+-- Ïîëó÷èòü âñå ðåöåïòû è èõ ìåòîäû ïðèãîòîâëåíèÿ
 SELECT 
     R.ID AS IdFirst,
     R.Title AS First,
@@ -219,3 +219,17 @@ FROM Recipes AS R,
      RecipesOfCookingMethods AS RCM,
      CookingMethods AS CM
 WHERE MATCH(R-(RCM)->CM);
+
+-- Ïîëó÷èòü âñå èíãðåäèåíòû è èõ ìåòîäû ïðèãîòîâëåíèÿ
+SELECT 
+    I.ID AS IdFirst,
+    I.Name AS First,
+    I.Quantity AS [Quantity],
+    CONCAT(N'Ingredients', I.id) AS [First image name],
+    CM.ID AS IdSecond,
+    CM.Name AS Second,
+    CONCAT(N'CookingMethods', CM.id) AS [Second image name]
+FROM Ingredients AS I,
+     IngredientsPreparationMethods IPM,
+     CookingMethods AS CM
+WHERE MATCH(I-(IPM)->CM);
